@@ -1,0 +1,563 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>windows | 陈晓的主页</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="/img/pwa/favicon.ico"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=1.12.1"><!-- inject head--><link rel="canonical" href="https://dawn-515.github.io/2024/06/24/windows/"><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><!-- aplayer--><!-- swiper--><!-- fancybox ui--><!-- katex--><!-- Open Graph--><meta name="description" content="windows1免密自动登录1.1 使用微软账户登录win+r 运行 netplwiz 取消勾选 “要使用本计算机，用户必须输入用户名密码” 然后两遍输入微软账户的密码，无需修改用户名 1.2 使用本地账户登录2 windows开启SSH服务端服务端windows打开设置，依次选择应用，应用"><!-- pwa--><meta name="apple-mobile-web-app-capable" content="陈晓的主页"><meta name="theme-color" content="var(--efu-main)"><meta name="apple-mobile-web-app-status-bar-style" content="var(--efu-main)"><link rel="bookmark" href="/img/pwa/favicon.ico"><link rel="apple-touch-icon" href="/img/pwa/favicon.ico" sizes="180x180"><script>console.log(
+    "%c Program: Hexo %c Theme: Solitude %c Version: v1.12.1",
+    "border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#ff3842;",
+    "padding: 5px 10px;color:white;background:#3e9f50;",
+    "padding: 5px 10px;color:white;background:#0084ff;border-radius:0 5px 5px 0",
+)
+</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+    
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+    
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+    
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+    
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+        
+                if (name && keyObj[name]) return
+        
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+        }
+    })()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: undefined,
+    localsearch: undefined,
+    runtime: '2023-04-20 00:00:00',
+    lazyload: {
+        enable: false,
+        error: '/img/error_load.avif'
+    },
+    copyright: {"limit":50,"author":"作者: 陈晓","link":"链接: ","source":"来源: 陈晓的主页","info":"著作权归作者所有。 商业转载请联系作者获得授权，非商业转载请注明出处。"},
+    highlight: {
+        enable: true,
+        limit: 200,
+        expand: true,
+        copy: true,
+        syntax: 'highlight.js'
+    },
+    randomlink: false,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可"},
+    aside: {
+        sayhello: {
+            morning: '一日之计在于晨',
+            noon: '吃饱了才有力气干活',
+            afternoon: '集中精力，攻克难关',
+            night: '不要太劳累了，早睡更健康',
+            goodnight: '睡个好觉，保证精力充沛',
+        },
+        sayhello2: [],
+        sayhello3: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: false
+    },
+    comment: false,
+    lightbox: 'null',
+    post_ai: false,
+    right_menu: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: true,
+    is_page: false,
+    is_home: false,
+    page: '',
+    toc: true,
+    comment: false,
+    ai_text: false
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- loading--><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude st-close-fill"></i></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换"><i class="solitude st-moon-clear-fill"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制"><i class="solitude st-side-bar-fill"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span>显示模式</span></span></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"></div></div></div></div><!-- keyboard--><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><a id="site-name" href="/" title="返回博客主页"><span class="title">Solitude</span></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">windows</a></div></div><div id="menus"></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude st-arrow-up-line"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude st-menu-line"></i></a></div></div></div></nav><div class="coverdiv" id="coverdiv"><img class="nolazyload" id="post-cover" src="/img/default.avif" alt="windows"></div><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original" title="该文章为原创文章，注意版权协议">原创</a><div class="tag_share"><div class="post-meta__tag-list"></div></div></div></div><h1 class="post-title">windows</h1><div id="post-meta"><div class="meta-secondline"></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h1><h3 id="1免密自动登录"><a href="#1免密自动登录" class="headerlink" title="1免密自动登录"></a>1免密自动登录</h3><h4 id="1-1-使用微软账户登录"><a href="#1-1-使用微软账户登录" class="headerlink" title="1.1 使用微软账户登录"></a>1.1 使用微软账户登录</h4><p>win+r  运行   netplwiz</p>
+<p>取消勾选  “要使用本计算机，用户必须输入用户名密码”</p>
+<p>然后两遍输入<strong>微软账户的密码</strong>，无需修改用户名</p>
+<h4 id="1-2-使用本地账户登录"><a href="#1-2-使用本地账户登录" class="headerlink" title="1.2 使用本地账户登录"></a>1.2 使用本地账户登录</h4><h3 id="2-windows开启SSH服务端"><a href="#2-windows开启SSH服务端" class="headerlink" title="2 windows开启SSH服务端"></a>2 windows开启SSH服务端</h3><p><em><strong>服务端windows</strong></em>打开<strong>设置</strong>，依次选择<strong>应用</strong>，<strong>应用和功能</strong>，<strong>可选功能</strong>，<strong>添加功能</strong>，搜索<strong>ssh</strong>,然后安装<strong>OpenSSH服务器</strong>。</p>
+<p>安装完成后，以管理员身份启动cmd或powershell，输入</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net <span class="built_in">start</span> sshd</span><br></pre></td></tr></table></figure>
+
+<p>接下来就可以通过另一台<em><strong>客户端电脑</strong></em>连接<strong>服务端windows</strong>了，但是默认是连接到<strong>服务端</strong>的cmd，</p>
+<p>以管理员身份启动powshell，输入以下代码可以使SSH连接Windows时默认使用Powershell</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">New-ItemProperty</span> <span class="literal">-Path</span> <span class="string">&quot;HKLM:\SOFTWARE\OpenSSH&quot;</span> <span class="literal">-Name</span> DefaultShell <span class="literal">-Value</span> <span class="string">&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&quot;</span> <span class="literal">-PropertyType</span> String <span class="literal">-Force</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-windwos服务常用端口"><a href="#3-windwos服务常用端口" class="headerlink" title="3 windwos服务常用端口"></a>3 windwos服务常用端口</h3><blockquote>
+<table>
+<thead>
+<tr>
+<th>服务</th>
+<th>协议</th>
+<th>端口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FTP</td>
+<td>TCP</td>
+<td>21</td>
+</tr>
+<tr>
+<td>SSH(包括ssh和sftp)</td>
+<td>TCP</td>
+<td>22</td>
+</tr>
+<tr>
+<td>telnet</td>
+<td>TCP</td>
+<td>23</td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>TCP</td>
+<td>25</td>
+</tr>
+<tr>
+<td>http</td>
+<td>TCP</td>
+<td>80</td>
+</tr>
+<tr>
+<td>P0P3</td>
+<td>TCP</td>
+<td>110</td>
+</tr>
+<tr>
+<td>https</td>
+<td>TCP</td>
+<td>443</td>
+</tr>
+<tr>
+<td>smb</td>
+<td>TCP</td>
+<td>445</td>
+</tr>
+<tr>
+<td>mysql</td>
+<td>TCP</td>
+<td>3306</td>
+</tr>
+<tr>
+<td>远程桌面连接</td>
+<td>TCP</td>
+<td>3389</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>UDP</td>
+<td>53</td>
+</tr>
+<tr>
+<td>DHCP</td>
+<td>UDP</td>
+<td>68</td>
+</tr>
+<tr>
+<td>TFTP(简单文件传输系统)</td>
+<td>UDP</td>
+<td>69</td>
+</tr>
+<tr>
+<td>SNMP</td>
+<td>UDP</td>
+<td>161</td>
+</tr>
+<tr>
+<td>NFS(网络文件系统)</td>
+<td>UDP</td>
+<td>2049</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>一般情况下，为了安全起见，运行商会封禁以下端口</p>
+<p>80(http) 443(https) 445(samba) 25(SMTP) 465(SMTPS)</p>
+<h3 id="4-公网smb"><a href="#4-公网smb" class="headerlink" title="4 公网smb"></a>4 公网smb</h3><h4 id="1-ipv6-ddns-go-开放netlogon"><a href="#1-ipv6-ddns-go-开放netlogon" class="headerlink" title="1 ipv6 + ddns-go + 开放netlogon"></a>1 ipv6 + ddns-go + 开放netlogon</h4><h4 id="2-ipv4-ddns-go-端口转发"><a href="#2-ipv4-ddns-go-端口转发" class="headerlink" title="2 ipv4 + ddns-go + 端口转发"></a>2 ipv4 + ddns-go + 端口转发</h4><h6 id="2-1方法1-在服务端与客户端分别进行端口转发（失败）"><a href="#2-1方法1-在服务端与客户端分别进行端口转发（失败）" class="headerlink" title="2.1方法1 在服务端与客户端分别进行端口转发（失败）"></a>2.1方法1 在服务端与客户端分别进行端口转发（失败）</h6><p>服务端(家里台式机)，</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=希望被修改成的服务器端口 listenaddress=<span class="number">0.0</span>.<span class="number">0.0</span> connectport=<span class="number">445</span> connectaddress=<span class="number">127.0</span>.<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+
+<p>比如,将smb默认的<em>127.0.0.1:445</em>端口转发给<em>127.0.0.1:4455</em>端口</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=<span class="number">4455</span> listenaddress=<span class="number">127.0</span>.<span class="number">0.1</span> connectport=<span class="number">445</span> connectaddress=<span class="number">127.0</span>.<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+
+<p>客户端(学校笔记本)</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=<span class="number">445</span> listenaddress=<span class="number">127.0</span>.<span class="number">0.1</span> connectport=服务器端口 connectaddress=服务器IP</span><br></pre></td></tr></table></figure>
+
+<p>比如，将<em>180.108.102.103:4455</em>转发给<em>127.0.0.2:445</em></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy add v4tov4 listenport=<span class="number">445</span> listenaddress=<span class="number">127.0</span>.<span class="number">0.2</span> connectport=<span class="number">4455</span> connectaddress=ipv6.chenxiaoijiajia.top</span><br></pre></td></tr></table></figure>
+
+<p>查看全部端口转发：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy show all</span><br></pre></td></tr></table></figure>
+
+<p>删除端口转发：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy delete v4tov4 listenaddress=欲删除项目的监听IP listenport=欲删除项目的监听端口</span><br></pre></td></tr></table></figure>
+
+<p>比如 删除 <em>127.0.0.2:445</em></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh interface portproxy delete v4tov4 listenaddress=<span class="number">127.0</span>.<span class="number">0.2</span> listenport=<span class="number">445</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="方法2-路由器设置端口转发（成功）"><a href="#方法2-路由器设置端口转发（成功）" class="headerlink" title="方法2 路由器设置端口转发（成功）"></a>方法2 路由器设置端口转发（成功）</h6><h3 id="5-字体"><a href="#5-字体" class="headerlink" title="5 字体"></a>5 字体</h3><p>windows terminal  </p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>字体</th>
+<th>字号</th>
+<th>行高</th>
+<th>第二字体</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>windows terminal</td>
+<td>MesloLGSDZ Nerd Font Mono</td>
+<td>14</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tabby</td>
+<td>MesloLGSDZ Nerd Font Mono</td>
+<td>18</td>
+<td>2</td>
+<td>微软雅黑</td>
+<td></td>
+</tr>
+<tr>
+<td>idea 编辑器字体<br />即配色方案字体</td>
+<td>MiSans</td>
+<td>20</td>
+<td>1.2</td>
+<td>Microsoft YaHei</td>
+<td></td>
+</tr>
+<tr>
+<td>idea 编辑器字体<br />即配色方案字体 方案2</td>
+<td>UbuntuMono Nerd Font Mono</td>
+<td>20</td>
+<td>1.2</td>
+<td>Microsoft YaHei</td>
+<td></td>
+</tr>
+<tr>
+<td>ideaUI</td>
+<td>Microsoft YaHei</td>
+<td>16</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>idea 控制台</td>
+<td>MesloLGSDZ Nerd Font Mono</td>
+<td>18</td>
+<td>1.2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h4><p>在下载某些字体时，可能会遇到相关术语，如下：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>mono</td>
+<td>即 Monospaced，等宽字体（一般指英文等宽）</td>
+</tr>
+<tr>
+<td>Proportional</td>
+<td>比例字体</td>
+</tr>
+<tr>
+<td>Serif</td>
+<td>衬线体<br />在字的笔画开始、结束的地方有额外的装饰，而且笔画的粗细会有所不同。<br />毛边</td>
+</tr>
+<tr>
+<td>sans</td>
+<td>即 Sans-Serif，无衬线体<br />没有这些额外的装饰，而且笔画的粗细差不多。</td>
+</tr>
+<tr>
+<td>gothic</td>
+<td>哥特体，即无衬线体</td>
+</tr>
+<tr>
+<td>上述术语都是针对英文字体的</td>
+<td>对于中文梯子</td>
+</tr>
+<tr>
+<td>hinted</td>
+<td>显示效果微调的字体</td>
+</tr>
+<tr>
+<td>unhinted</td>
+<td>无微调字体</td>
+</tr>
+<tr>
+<td>VF (Variable fonts)</td>
+<td>:可变字体，可以自由的调整字体的粗细</td>
+</tr>
+<tr>
+<td>slab</td>
+<td>一般较为厚重，适用于强调性文本，标题等，不适用于长文本</td>
+</tr>
+</tbody></table>
+<p>微调(hinting)分为两种：内嵌微调与自动微调。内嵌微调是字体设计者耗费大量的时间和精力、精心制作的、内嵌在字体文件中的额外指令，本质上是人工微调；而自动微调(autohint)是 FreeType 内嵌的一套微调算法，通用于所有矢量字体，本质上是机器微调。一般说来，内嵌微调比自动微调的显示效果更佳。</p>
+<p>上述术语都是针对英文字体的，对于中文字体，习惯性称衬线字体为宋体，非衬线字体为黑体</p>
+<table>
+<thead>
+<tr>
+<th>字重（字体大小）</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Thin</td>
+<td>极细</td>
+</tr>
+<tr>
+<td>Light</td>
+<td>细体</td>
+</tr>
+<tr>
+<td>Regular</td>
+<td>常规</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>适中</td>
+</tr>
+<tr>
+<td>Blod</td>
+<td>粗体</td>
+</tr>
+<tr>
+<td>Black</td>
+<td>粗体</td>
+</tr>
+<tr>
+<td>Heavy</td>
+<td>特粗</td>
+</tr>
+<tr>
+<td>italic</td>
+<td>斜体</td>
+</tr>
+<tr>
+<td>bolditalic</td>
+<td>加粗斜体</td>
+</tr>
+<tr>
+<td>regular</td>
+<td>常规体</td>
+</tr>
+<tr>
+<td>sc</td>
+<td>即 Simplified Chinese，简体中文</td>
+</tr>
+<tr>
+<td>tc</td>
+<td>即 Traditional Chinese，繁体中文</td>
+</tr>
+<tr>
+<td>cl</td>
+<td>即 Classical Literature，《康熙字典》字形</td>
+</tr>
+<tr>
+<td>ligature</td>
+<td>连体字符，举例来说，会把 <code>!=</code> 变成 <code>≠</code></td>
+</tr>
+</tbody></table>
+<h4 id="字体文件类型后缀："><a href="#字体文件类型后缀：" class="headerlink" title="字体文件类型后缀："></a>字体文件类型后缀：</h4><ol>
+<li><code>.otf</code> 是指基于 PostScript 开发的 OTF 格式 （windows 对其支持不佳，例如：word 无法将这类字体嵌入到 pdf 中）</li>
+<li><code>.ttf</code>包含两类字体：<ol>
+<li>一类是古老的 <code>TTF</code> 格式；</li>
+<li>另一类是 基于 TTF 开发的 <code>OTF</code> 格式<br><code>.ttc (TrueType Collection)</code> 是 <code>ttf (TrueType Collection)</code> 的集合。</li>
+</ol>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39550940/article/details/111739766">https://blog.csdn.net/weixin_39550940/article/details/111739766</a></p>
+<p>Sarasa Gothic &#x2F; 更纱黑体：基于Noto Sans，全宽引号 Quotes (“”) are full width —— Gothic</p>
+<p>Sarasa UI &#x2F; 更纱黑体 UI：基于Noto Sans窄引号 Quotes (“”) are narrow —— UI</p>
+<p>Sarasa Mono T &#x2F; 等距更纱黑体 T：基于Iosevka，有连字，全宽破折号 Have ligature, Em dashes (——) are full width —— MonoT</p>
+<p>Sarasa Mono &#x2F; 等距更纱黑体：基于Iosevka，有连字，半宽破折号 Have ligature, Em dashes (——) are half width —— Mono</p>
+<p>Sarasa Term：基于Iosevka，无连字，半宽破折号 No ligature, Em dashes (——) are half width —— Term</p>
+<p>适合代码 的   </p>
+<p>mono </p>
+<p>sans </p>
+<p>Nerd fonts</p>
+<p>unhinted</p>
+<p>中英文2:1的字体</p>
+<ul>
+<li><p>1 Dejavu Sans Mono</p>
+</li>
+<li><p>2 Sarasa mono SC(等距更纱黑体)</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/laishulu/Sarasa-Term-SC-Nerd">Sarasa Term SC Nerd</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/XuanXiaoming/Sarasa-Mono-SC-Nerd">Sarasa Mono SC Nerd 旧版</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/seekdoor/Sarasa-Mono-SC-Nerd">Sarasa Mono SC Nerd &amp; Sarasa Mono SC Wide Nerd 新版</a></li>
+</ul>
+</li>
+<li><p>3 思源黑体HW</p>
+</li>
+</ul>
+<p>​    <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/623573927">https://zhuanlan.zhihu.com/p/623573927</a></p>
+<p>vscode</p>
+<p>vscode 远程运行R</p>
+<ul>
+<li><p>远程服务器</p>
+<ul>
+<li>1 R环境 和R包</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install.packages(&quot;languageserver&quot;)</span><br><span class="line">install.packages(&quot;httpgd&quot;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>2 python环境 和radian<br>pipx install radian</p>
+</li>
+<li></li>
+</ul>
+</li>
+<li><p>本地电脑</p>
+<ul>
+<li>1  vscode   remote-SSH插件</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="winget"><a href="#winget" class="headerlink" title="winget"></a>winget</h2><p>查询参数   winget install -q</p>
+<p>winget install –id packageid –scope machine</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">winget install <span class="literal">--id</span> packageid <span class="literal">--scope</span> machine</span><br><span class="line"></span><br><span class="line"><span class="comment"># --scope machine   ==&gt; C:\Program Files\WinGet\Packages</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#### zip格式 ####</span></span><br><span class="line"><span class="comment">## --scope machine 全局安装 </span></span><br><span class="line"><span class="comment">##  </span></span><br><span class="line"><span class="comment">## 用户安装</span></span><br><span class="line"><span class="comment">##  C:\Users\24970\AppData\Local\Microsoft\WinGet\Packages\sharkdp.fd_Microsoft.Winget.Source_8wekyb3d8bbwe\fd-v8.7.1-x86_64-pc-windows-msvc</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># bat</span></span><br><span class="line">winget install <span class="literal">--id</span> sharkdp.bat <span class="literal">--scope</span> machine</span><br><span class="line"><span class="comment"># fd-find</span></span><br><span class="line">winget install sharkdp.fd</span><br><span class="line">winget install <span class="literal">--id</span> sharkdp.fd <span class="literal">--scope</span> machine</span><br><span class="line"></span><br><span class="line"><span class="comment"># hexyl  16进制查看器</span></span><br><span class="line">winget install <span class="literal">--id</span> sharkdp.hexyl <span class="literal">--scope</span> machine</span><br><span class="line"></span><br><span class="line"><span class="comment"># dust</span></span><br><span class="line">winget install <span class="literal">--id</span> bootandy.dust <span class="literal">--scope</span> machine</span><br><span class="line"></span><br><span class="line"><span class="comment"># duf</span></span><br><span class="line">winget install <span class="literal">--id</span> muesli.duf <span class="literal">--scope</span> machine</span><br><span class="line"></span><br><span class="line"><span class="comment"># zoxide</span></span><br><span class="line">winget install <span class="literal">--id</span> ajeetdsouza.zoxide <span class="literal">--scope</span> machine</span><br><span class="line"><span class="comment"># fzf</span></span><br><span class="line">winget install <span class="literal">--id</span> junegunn.fzf <span class="literal">--scope</span> machine</span><br><span class="line"></span><br><span class="line"><span class="comment">#### msi格式 ####</span></span><br><span class="line"><span class="comment"># bottom 默认安装在 C:\Program Files\bottom</span></span><br><span class="line">winget install <span class="literal">--id</span> Clement.bottom</span><br><span class="line">btm</span><br><span class="line"></span><br><span class="line"><span class="comment">#### exe格式 ####</span></span><br><span class="line">winget install wingetui</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 失败</span></span><br><span class="line"><span class="comment"># procs 尚未进winget源</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># lsd 只能用choco</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="出现ms-gamingoverlay问题"><a href="#出现ms-gamingoverlay问题" class="headerlink" title="出现ms-gamingoverlay问题"></a>出现ms-gamingoverlay问题</h2><h4 id="1-实测-只需修改1"><a href="#1-实测-只需修改1" class="headerlink" title="1 实测 只需修改1"></a>1 实测 只需修改1</h4><p>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR</p>
+<p>找到其中AppCaptureEnabled这个键值，把值改为0。</p>
+<h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><p>HKEY_CURRENT_USER\System\GameConfigStore</p>
+<p>找打其中GameDVR_Enabled这个键值，把值改为0</p>
+</article><div class="post-copyright"><div class="post-copyright__author_group"><a class="post-copyright__author_img" href="/about/"><img class="post-copyright__author_img_front" src="/img/pwa/favicon.ico"></a><div class="post-copyright__author_name">陈晓的主页</div><div class="post-copyright__author_desc"></div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div id="quit-box" onclick="RemoveRewardMask()"></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>协议，完整转载请注明来自<a href="/">陈晓的主页</a></span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"></div></div></div><nav class="needEndHide pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/06/24/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">测试文章</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__top-group"><div class="author-info__sayhi" id="author-info__sayhi" onclick="sco.changeSayHelloText()">sayhello.morning</div></div></div><div class="avatar-img-group"><img class="avatar-img" alt="头像" src="/img/avatar.avif"><div class="avatar-sticker"><img class="avatar-sticker-img" src="https://7.isyangs.cn/34/65f2e4e0423cc-34.png" alt="心情贴纸"></div></div><div class="author-info__description_group"><div class="author-info__description">分享自己对编程的<b>热爱</b>，对美好生活的<b>向往</b>，对知识海洋<b>探索历程</b>。</div><div class="author-info__description2">相信你可以在这里找到对你有用的知识和教程。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/about/"><div class="author-info__name">陈晓</div><div class="author-info__desc"></div></a><div class="card-info-social-icons is-center"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="solitude st-menu-line"></i><span>文章目录</span></div><div class="toc-content" id="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#windows"><span class="toc-text">windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E5%85%8D%E5%AF%86%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95"><span class="toc-text">1免密自动登录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E4%BD%BF%E7%94%A8%E5%BE%AE%E8%BD%AF%E8%B4%A6%E6%88%B7%E7%99%BB%E5%BD%95"><span class="toc-text">1.1 使用微软账户登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%9C%B0%E8%B4%A6%E6%88%B7%E7%99%BB%E5%BD%95"><span class="toc-text">1.2 使用本地账户登录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-windows%E5%BC%80%E5%90%AFSSH%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-text">2 windows开启SSH服务端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-windwos%E6%9C%8D%E5%8A%A1%E5%B8%B8%E7%94%A8%E7%AB%AF%E5%8F%A3"><span class="toc-text">3 windwos服务常用端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%85%AC%E7%BD%91smb"><span class="toc-text">4 公网smb</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-ipv6-ddns-go-%E5%BC%80%E6%94%BEnetlogon"><span class="toc-text">1 ipv6 + ddns-go + 开放netlogon</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-ipv4-ddns-go-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-text">2 ipv4 + ddns-go + 端口转发</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#2-1%E6%96%B9%E6%B3%951-%E5%9C%A8%E6%9C%8D%E5%8A%A1%E7%AB%AF%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%88%86%E5%88%AB%E8%BF%9B%E8%A1%8C%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%EF%BC%88%E5%A4%B1%E8%B4%A5%EF%BC%89"><span class="toc-text">2.1方法1 在服务端与客户端分别进行端口转发（失败）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%96%B9%E6%B3%952-%E8%B7%AF%E7%94%B1%E5%99%A8%E8%AE%BE%E7%BD%AE%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%EF%BC%88%E6%88%90%E5%8A%9F%EF%BC%89"><span class="toc-text">方法2 路由器设置端口转发（成功）</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AD%97%E4%BD%93"><span class="toc-text">5 字体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AF%E8%AF%AD"><span class="toc-text">术语</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E5%90%8E%E7%BC%80%EF%BC%9A"><span class="toc-text">字体文件类型后缀：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#winget"><span class="toc-text">winget</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BA%E7%8E%B0ms-gamingoverlay%E9%97%AE%E9%A2%98"><span class="toc-text">出现ms-gamingoverlay问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AE%9E%E6%B5%8B-%E5%8F%AA%E9%9C%80%E4%BF%AE%E6%94%B91"><span class="toc-text">1 实测 只需修改1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2"><span class="toc-text">2</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="solitude st-map-line"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/24/windows/" title="windows"><img alt="windows" src="/img/default.avif"></a><div class="content"><a class="title" href="/2024/06/24/windows/" title="windows">windows</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/24/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章"><img alt="测试文章" src="/img/default.avif"></a><div class="content"><a class="title" href="/2024/06/24/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章">测试文章</a></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/24/hello-world/" title="Hello World"><img alt="Hello World" src="/img/default.avif"></a><div class="content"><a class="title" href="/2024/06/24/hello-world/" title="Hello World">Hello World</a></div></div></div></div></div></div></main><footer id="footer"><div id="st-footer-bar"><div class="footer-logo"><span>Solitude</span></div><div class="footer-bar-description">来自 Efu 的文章</div><a class="footer-bar-link" href="/about/">了解更多</a></div><div id="footer_deal"></div><div id="st-footer"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2023 - 2024 By&nbsp;<a class="footer-bar-link" href="/">陈晓</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/everfu/hexo-theme-solitude" alt="主题">主题</a><a class="footer-bar-link cc" href="/null" aria-label="copyright"><i class="solitude st-copyright-line"></i><i class="solitude st-creative-commons-by-line"></i><i class="solitude st-creative-commons-nc-line"></i><i class="solitude st-creative-commons-nd-line"></i></a></div></div></div></footer></div><!-- right_menu--><!-- inject body--><div><script src="/js/utils.js?v=1.12.1"></script><script src="/js/main.js?v=1.12.1"></script><script src="/js/third_party/waterfall.min.js?v=1.12.1"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=1.12.1"></script><script>dark()
+</script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><div class="js-pjax"></div></div><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff'],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- google adsense--><!-- search--><!-- Tianli-Talk--><!-- music--></body></html><script>const posts=["2024/06/24/windows/","2024/06/24/测试文章/","2024/06/24/hello-world/"];function toRandomPost(){ pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]); }</script>

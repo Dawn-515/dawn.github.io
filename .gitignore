@@ -2,7 +2,7 @@
 .deploy_git
 .github
 node_modules
-public
+public/
 themes
 # 忽略文件
 db.json

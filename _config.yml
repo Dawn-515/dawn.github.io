@@ -3,9 +3,10 @@
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
 
-# Site
-title: Dawn的主页
-subtitle: ""
+# 侧边栏(Site)
+title: Dawn的主页 # 网站的标题
+avatar: # 网站的头像
+subtitle: "白白胖胖 | 充满希望" # 网站的副标题
 description: ""
 keywords:
 author: Dawn
@@ -112,6 +113,8 @@ deploy:
   - type: git
     repo: git@github.com:Dawn-515/Dawn-515.github.io.git
     branch: main
+    message: "update"
   - type: git
     repo: git@gitee.com:mulin_cx/mulin_cx.gitee.io.git
     branch: main
+    message: "update"

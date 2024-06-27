@@ -144,7 +144,7 @@ deploy:
   branch: master
 ```
 
-最后执行推送 `hexo c && hexo d`。
+最后执行推送 `hexo g && hexo c && hexo d`。
 
 ```powershell
 hexo c # 清除缓存文件 (db.json) 和已生成的静态文件 (public)。

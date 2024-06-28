@@ -99,7 +99,10 @@ git fsck
 mkdir git-project
 cd git-project
 git init
-git add *
+#  * 代表 将所有文件添加到暂存区， . 代表将所有新文件和修改过的文件添加到暂存区
+git add * 
+git add . 
+# 
 git commit -m "update"
 # https 
 git remote add origin https://github.com/Dawn-515/Dawn-515.github.io.git
@@ -143,3 +146,6 @@ ssh git@github.com
 ssh git@gitee.com
 ```
 ### 2.4 
+```
+git status
+```

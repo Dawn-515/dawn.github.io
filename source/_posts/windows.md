@@ -119,16 +119,16 @@ netsh interface portproxy delete v4tov4 listenaddress=127.0.0.2 listenport=445
 
 windows terminal  
 
-| 工具                          | 字体                        | 字号  | 行高  | 第二字体            |     |
-| --------------------------- | ------------------------- | --- | --- | --------------- | --- |
-| windows terminal            | MesloLGSDZ Nerd Font Mono | 14  |     |                 |     |
-|                             |                           |     |     |                 |     |
-| tabby                       | MesloLGSDZ Nerd Font Mono | 18  | 2   | 微软雅黑            |     |
-| idea 编辑器字体<br />即配色方案字体     | MiSans                    | 20  | 1.2 | Microsoft YaHei |     |
-| idea 编辑器字体<br />即配色方案字体 方案2 | UbuntuMono Nerd Font Mono | 20  | 1.2 | Microsoft YaHei |     |
-| ideaUI                      | Microsoft YaHei           | 16  |     |                 |     |
-| idea 控制台                    | MesloLGSDZ Nerd Font Mono | 18  | 1.2 |                 |     |
-|                             |                           |     |     |                 |     |
+| 工具                                      | 字体                      | 字号 | 行高 | 第二字体        |     |
+| ----------------------------------------- | ------------------------- | ---- | ---- | --------------- | --- |
+| windows terminal                          | MesloLGSDZ Nerd Font Mono | 14   |      |                 |     |
+|                                           |                           |      |      |                 |     |
+| tabby                                     | MesloLGSDZ Nerd Font Mono | 18   | 2    | 微软雅黑        |     |
+| idea 编辑器字体<br />即配色方案字体       | MiSans                    | 20   | 1.2  | Microsoft YaHei |     |
+| idea 编辑器字体<br />即配色方案字体 方案2 | UbuntuMono Nerd Font Mono | 20   | 1.2  | Microsoft YaHei |     |
+| ideaUI                                    | Microsoft YaHei           | 16   |      |                 |     |
+| idea 控制台                               | MesloLGSDZ Nerd Font Mono | 18   | 1.2  |                 |     |
+|                                           |                           |      |      |                 |     |
 
 
 
@@ -136,39 +136,39 @@ windows terminal
 
 在下载某些字体时，可能会遇到相关术语，如下：
 
-|                     |                                                    |
-| ------------------- | -------------------------------------------------- |
-| mono                | 即 Monospaced，等宽字体（一般指英文等宽）                         |
-| Proportional        | 比例字体                                               |
-| Serif               | 衬线体<br />在字的笔画开始、结束的地方有额外的装饰，而且笔画的粗细会有所不同。<br />毛边 |
-| sans                | 即 Sans-Serif，无衬线体<br />没有这些额外的装饰，而且笔画的粗细差不多。       |
-| gothic              | 哥特体，即无衬线体                                          |
-| 上述术语都是针对英文字体的       | 对于中文梯子                                             |
-| hinted              | 显示效果微调的字体                                          |
-| unhinted            | 无微调字体                                              |
-| VF (Variable fonts) | :可变字体，可以自由的调整字体的粗细                                 |
-| slab                | 一般较为厚重，适用于强调性文本，标题等，不适用于长文本                        |
+|                            |                                                                                          |
+| -------------------------- | ---------------------------------------------------------------------------------------- |
+| mono                       | 即 Monospaced，等宽字体（一般指英文等宽）                                                |
+| Proportional               | 比例字体                                                                                 |
+| Serif                      | 衬线体<br />在字的笔画开始、结束的地方有额外的装饰，而且笔画的粗细会有所不同。<br />毛边 |
+| sans                       | 即 Sans-Serif，无衬线体<br />没有这些额外的装饰，而且笔画的粗细差不多。                  |
+| gothic                     | 哥特体，即无衬线体                                                                       |
+| 上述术语都是针对英文字体的 | 对于中文梯子                                                                             |
+| hinted                     | 显示效果微调的字体                                                                       |
+| unhinted                   | 无微调字体                                                                               |
+| VF (Variable fonts)        | :可变字体，可以自由的调整字体的粗细                                                      |
+| slab                       | 一般较为厚重，适用于强调性文本，标题等，不适用于长文本                                   |
 
 微调(hinting)分为两种：内嵌微调与自动微调。内嵌微调是字体设计者耗费大量的时间和精力、精心制作的、内嵌在字体文件中的额外指令，本质上是人工微调；而自动微调(autohint)是 FreeType 内嵌的一套微调算法，通用于所有矢量字体，本质上是机器微调。一般说来，内嵌微调比自动微调的显示效果更佳。
 
 上述术语都是针对英文字体的，对于中文字体，习惯性称衬线字体为宋体，非衬线字体为黑体
 
-| 字重（字体大小）   |                                 |
-| ---------- | ------------------------------- |
-| Thin       | 极细                              |
-| Light      | 细体                              |
-| Regular    | 常规                              |
-| Medium     | 适中                              |
-| Blod       | 粗体                              |
-| Black      | 粗体                              |
-| Heavy      | 特粗                              |
-| italic     | 斜体                              |
-| bolditalic | 加粗斜体                            |
-| regular    | 常规体                             |
-| sc         | 即 Simplified Chinese，简体中文       |
-| tc         | 即 Traditional Chinese，繁体中文      |
-| cl         | 即 Classical Literature，《康熙字典》字形 |
-| ligature   | 连体字符，举例来说，会把 `!=` 变成 `≠`        |
+| 字重（字体大小） |                                           |
+| ---------------- | ----------------------------------------- |
+| Thin             | 极细                                      |
+| Light            | 细体                                      |
+| Regular          | 常规                                      |
+| Medium           | 适中                                      |
+| Blod             | 粗体                                      |
+| Black            | 粗体                                      |
+| Heavy            | 特粗                                      |
+| italic           | 斜体                                      |
+| bolditalic       | 加粗斜体                                  |
+| regular          | 常规体                                    |
+| sc               | 即 Simplified Chinese，简体中文           |
+| tc               | 即 Traditional Chinese，繁体中文          |
+| cl               | 即 Classical Literature，《康熙字典》字形 |
+| ligature         | 连体字符，举例来说，会把 `!=` 变成 `≠`    |
 
 
 
@@ -240,11 +240,10 @@ vscode 远程运行R
   * 1  vscode   remote-SSH插件
 
 ### 7 winget
-
 查询参数   winget install -q
-
+```
 winget install --id packageid --scope machine
-
+```
 ```powershell
 winget install --id packageid --scope machine
 
@@ -289,6 +288,12 @@ winget install wingetui
 # lsd 只能用choco
 
 ```
+忽略更新
+```
+winget pin add Xmind.Xmind
+winget pin add Tonec.InternetDownloadManager
+winget pin add Microsoft.WindowsTerminal
+```
 
 ### 8 出现ms-gamingoverlay问题
 
@@ -311,17 +316,30 @@ HKEY_CURRENT_USER\System\GameConfigStore
 ##### 1.1 系统启动文件夹
 
 ```powershell
+# 1 启动文件夹（三者等价）
 shell:CommonStartup
 %programdata%\Microsoft\Windows\Start Menu\Programs\Startup
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp
-```
+# 2 注册表
+# 2.1 普通注册表
+计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 
+# 3 计划任务
+管理 - 计划
+
+```
 ##### 1.2 用户启动文件夹
 
 ```powershell
+# 1 启动文件夹（三者等价）
 shell:startup
 %appdata%\Microsoft\Windows\Start Menu\Programs\Startup
 C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+# 2 注册表（两种方式）
+# 2.1 普通注册表
+计算机\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+# 2.2 uwp应用注册表
+计算机\HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData\45479liulios.17062D84F7C46_p7pnf6hceqser\SnipasteStartupTask
 ```
 
 #### 2 [powershell 配置文件](https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.4)

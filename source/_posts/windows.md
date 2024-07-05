@@ -373,3 +373,5 @@ $PSHOME\Microsoft.PowerShell_profile.ps1
 $PROFILE.AllUsersAllHosts
 $PSHOME\Profile.ps1
 ```
+### 10 [电源计划](powercfg /list)
+powercfg /list
